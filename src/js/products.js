@@ -1,3 +1,6 @@
+import { showCart } from "./showCart.js"
+
+
 let cart = [];
 
 export function getProduct(data, contentProducts) {
@@ -17,13 +20,12 @@ export function getProduct(data, contentProducts) {
 }
 
 
-export function addProduct(e, cartBody) {
+export function addProduct(e, cartBody,cartUl,cartModal) {
    if (e.target.classList.contains('main__info-add')) {
     const item = e.target.parentElement;
     leerData(item, cartBody);
- 
+    showCart(cartUl, cartModal);
    }
-
 }
 
 function leerData(item, cartBody) {
@@ -85,7 +87,6 @@ export function deletedItem(e,cartBody) {
         cart = cart.filter(item => item.id !== dataId)
          cartHtml(cart, cartBody)
     }
-
 }
 
 function addLocalStorage() {

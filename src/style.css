@@ -5,10 +5,9 @@
 }
 
 html{
-    /* min-height: 100%;
-    position: relative; */
     font-size: 62.5%;
 }
+
 .container{
     width: 90%;
     max-width: 1200px;
@@ -16,15 +15,13 @@ html{
 }
 
 
-
-
 /* --------------------------header----------------- */
+
 
 .header{
     background-color: rgb(52, 14, 54);
+    font-family: 'Poppins', sans-serif;
 }
-
-
 
 .header__menu{
     display: flex;
@@ -43,24 +40,24 @@ html{
 
 .header__content2{
     display: flex;
-    align-items: center;
-    gap: 15px;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
 }
 
 .header__logo{
-    /* width: 85px; */
     font-size: 2.5rem;
     color: #fff;
 }
 
 .header__icon{
     width: 30px;
+    color: #fff;
     cursor: pointer;
 }
 
 .header__box-inp{
     position: relative;
-    /* margin: 0 auto; */
     width: 100%;
 }
 
@@ -80,9 +77,14 @@ html{
     transform: translateY(-50%);
 }
 
-
 .header__enlaces span{
     font-size: 2.5rem;
+}
+
+.bx-span{
+    color: #fff;
+    font-size: 1.5rem;
+    padding-right: 5px;
 }
 
 
@@ -90,7 +92,6 @@ html{
 /* --------------------------main----------------------------- */
 
 .main__banner{
-    /* background-color: black; */
     width: 90%;
     margin: 50px auto
 }
@@ -98,6 +99,7 @@ html{
 .main__banner-img{
     width: 100%;
 }
+
 .main__content-grid{
     /* background-color: aqua; */
     padding: 30px 0;
@@ -112,7 +114,7 @@ html{
 }
 
 .main__product{
-    background-color: #868686;
+    /* background-color: #fcf7f7; */
     padding: 10px;
     text-align: center;
 }
@@ -125,7 +127,6 @@ html{
 
 .main__product img{
     width: 100%;
-    /* height: 260px; */
     height: 70%;
     object-fit: cover;
 }
@@ -136,6 +137,7 @@ html{
 .main__info-add{
     padding: 10px 0;
     width: 90%;
+    cursor: pointer;
 }
 
 /* ------------------------------cart --------------------- */
@@ -162,7 +164,7 @@ html{
 
 .card__content{
     position: fixed;
-    background-color: blanchedalmond;
+    background-color: white;
     width: 100%;
     max-width: 420px;
     height: 100vh;
@@ -177,7 +179,6 @@ html{
 .card__content.active{
     transform:  translateX(0);
 }
-
 
 .cart__head, .cart__footer{
     background-color: gainsboro;
@@ -212,6 +213,7 @@ html{
 }
 
 /* ----------------------------itemCart------------------ */
+
 .cart__item{
     display: flex;
     /* background-color: aqua; */
@@ -227,7 +229,6 @@ html{
 
 .cart__column-info{
     width: 70%;
-    /* border:2px solid rgb(212, 100, 100); */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -237,16 +238,14 @@ html{
 .cart__deleted{
     cursor: pointer;
 }
+
 .cart__description{
-    /* background-color: yellow; */
     display:flex;
     justify-content: space-between;
-    
 }
 
 
 .cart__details-group{
-    /* background-color: grey; */
     display: flex;
     justify-content: space-between;
 }
@@ -264,46 +263,26 @@ html{
 }
 
 
-
-
-
-
-
-
-
 /* -------------------------footer----------------------- */
 
 .footer{
-    /* background-color:  rgb(250, 99, 43); */
+    color: #fff;
     background-color:  rgb(42, 10, 44);
     padding: 15px 0;
 }
 
-
-.footer__box{
-    padding: 10px;
-    /* background-color: aqua; */
+.footer__info{
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
-}
-
-.footer__social-icon{
-    width: 35px;
-}
-
-.footer__info{
-    /* background-color: aqua; */
-    margin-top: 10px;
-    padding-top: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
+    line-height: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer__info-text{
-    /* background-color: blue; */
-display: flex;
-justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 
 }
 
@@ -317,13 +296,6 @@ justify-content: space-between;
         order: 1;
     }
 
-    .icon{
-        color: rgb(128, 7, 7);
-        
-    }
-    .footer__info-text{
-        text-align: start;
-    }
 }
 
 

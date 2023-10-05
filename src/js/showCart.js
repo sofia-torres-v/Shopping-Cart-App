@@ -1,10 +1,10 @@
-export function showCart(cart, cartModal) {
-    if (cart.classList.contains('active')) {
-        cart.classList.remove('active');
+export function showCart(cartUl, cartModal) {
+    if (cartUl.classList.contains('active')) {
+        cartUl.classList.remove('active');
         cartModal.classList.remove('isActive')
         
     } else {
-        cart.classList.add('active');
+        cartUl.classList.add('active');
         cartModal.classList.add('isActive')
     }
 }
