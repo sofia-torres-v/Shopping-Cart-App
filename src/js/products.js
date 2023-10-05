@@ -50,7 +50,8 @@ function cartHtml(cart, cartBody) {
                                 <div class="cart__column-info" >
                                     <div class="cart__description" >
                                         <h3>${item.title}</h3>
-                                        <p>${item.price}</p>
+                                        <i class='bx bx-trash bx-md cart__deleted'data-id="${item.id}"></i>
+                                 
                                     </div>
                                     <div class="cart__content-details" >
                                         <p>subtotal</p>
@@ -60,7 +61,7 @@ function cartHtml(cart, cartBody) {
                                                 <input type="text" value='${item.quantity}'>
                                                 <button class="cart__btn-plus" >+</button>
                                             </div>
-                                            <span class='cart__deleted' data-id='${item.id}'>Cerrar</span>
+                                            <p>${item.price}</p>
                                         </div>
                                     </div>
                                 </div>`

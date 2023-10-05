@@ -180,7 +180,7 @@ html{
 
 
 .cart__head, .cart__footer{
-    background-color: blue;
+    background-color: gainsboro;
     padding: 20px 15px;
 }
 
@@ -217,7 +217,7 @@ html{
     /* background-color: aqua; */
     justify-content: center;
     gap: 15px;
-    padding: 20px 0;
+    padding: 20px 10px;
     border-bottom: 1px solid #868686;
 }
 .cart__column-img{
@@ -227,22 +227,26 @@ html{
 
 .cart__column-info{
     width: 70%;
-    border:2px solid rgb(212, 100, 100);
+    /* border:2px solid rgb(212, 100, 100); */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-size: 1.5rem;
-
 }
 
+.cart__deleted{
+    cursor: pointer;
+}
 .cart__description{
-    background-color: yellow;
+    /* background-color: yellow; */
     display:flex;
     justify-content: space-between;
     
 }
+
+
 .cart__details-group{
-    background-color: grey;
+    /* background-color: grey; */
     display: flex;
     justify-content: space-between;
 }
