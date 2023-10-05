@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/style.css" />
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__menu container">
+
+            <!-- Menú icon and logo -->
+            <div class="header__content1">
+                <span class="header__logo">ShopPlus</span>
+            </div>
+
+            <!-- User and Cart icon -->
+            <div class="header__content2">
+                <img class="header__icon" src="../src/images/user-circle.png" alt="" />
+                <img class="header__icon" id="icon-cart" src="../src/images/carrito.png" alt="" />
+            </div>
+
+            <!-- Search box -->
+            <div class="header__box-inp">
+                <input class="header__inp" type="text" />
+                <img class="header__search" src="../src//images/buscador.png" alt="" />
+            </div>
+
+            <!-- cart  -->
+            <div class="cart__modal">
+                <ul class="card__content">
+                    <li class="cart__head">
+                        <h3>CART <span>(Item)</span></h3>
+                        <i class='close bx bx-x'></i>
+                    </li>
+
+                    <li class="cart__body">
+                        <!-- js  -->
+                    </li>
+
+                    <li class="cart__footer">
+                        <button class="cart__button">Clear cart</button>
+                        <p>Total: <span>$100</span> </p>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="main">
+            <!-- <h1 class="main__title">Bienvenido</h1> -->
+
+            <div class="main__banner">
+                <img class="main__banner-img" src="../src//images/l3.webp" alt="" />
+            </div>
+
+            <div class="main__content-grid container">
+                <!-- js -->
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer__box container">
+        </div>
+
+        <!-- Footer information -->
+        <div class="footer__info container">
+            <p class="footer__info-text">©TODOS LOS DERECHOS RESERVADOS</p>
+            <p class="footer__info-text">ShopPlus S.A.R.U.C.N 101010101010</p>
+            <p class="footer__info-text">Perú - Ciudad Av.Las Flores Nz S3 Lte-20 Las Lomas</p>
+        </div>
+    </footer>
+    <script src="./app.js" type="module"></script>
+</body>
+
+</html>
