@@ -1,3 +1,6 @@
+import { showCart } from "./showCart.js"
+
+
 let cart = [];
 
 export function getProduct(data, contentProducts) {
@@ -17,13 +20,12 @@ export function getProduct(data, contentProducts) {
 }
 
 
-export function addProduct(e, cartBody) {
+export function addProduct(e, cartBody,cartUl,cartModal) {
    if (e.target.classList.contains('main__info-add')) {
     const item = e.target.parentElement;
     leerData(item, cartBody);
- 
+    showCart(cartUl, cartModal);
    }
-
 }
 
 function leerData(item, cartBody) {
@@ -50,7 +52,8 @@ function cartHtml(cart, cartBody) {
                                 <div class="cart__column-info" >
                                     <div class="cart__description" >
                                         <h3>${item.title}</h3>
-                                        <p>${item.price}</p>
+                                        <i class='bx bx-trash bx-md cart__deleted'data-id="${item.id}"></i>
+                                 
                                     </div>
                                     <div class="cart__content-details" >
                                         <p>subtotal</p>
@@ -60,7 +63,7 @@ function cartHtml(cart, cartBody) {
                                                 <input type="text" value='${item.quantity}'>
                                                 <button class="cart__btn-plus" >+</button>
                                             </div>
-                                            <span class='cart__deleted' data-id='${item.id}'>Cerrar</span>
+                                            <p>${item.price}</p>
                                         </div>
                                     </div>
                                 </div>`
@@ -84,7 +87,6 @@ export function deletedItem(e,cartBody) {
         cart = cart.filter(item => item.id !== dataId)
          cartHtml(cart, cartBody)
     }
-
 }
 
 function addLocalStorage() {

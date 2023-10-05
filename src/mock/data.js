@@ -125,37 +125,5 @@ export default  [
       "itHasDues": false,
       "isAnOffer": false
     },
-    {
-      "id": 13,
-      "image": "https://www.gamarra.com.pe/wp-content/uploads/2023/02/DSC05910-300x450.jpg",
-      "title": "Short Demin",
-      "price": 139.99,
-      "description":"Short Drill Para Dama, corte moderno",
-      "category": "Mujeres",
-  
-      "itHasDues": true,
-      "isAnOffer": true
-    },
-    {
-      "id": 14,
-      "image": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba9d054d4f884962aa8aaf5b00bcccb2_9366/Conjunto_Polera_con_Capucha_Adicolor_Verde_IB9909_21_model.jpg",
-      "title": "Conjunto Polera",
-      "price": 149.99,
-      "description":"Conjunto Polera con capucha Adicolor-verde Adidas.",
-      "category": "Niños",
-  
-      "itHasDues": false,
-      "isAnOffer": false
-    },
-    {
-      "id": 15,
-      "image": "https://oechsle.vteximg.com.br/arquivos/ids/10883052-1000-1000/1943029_4.jpg?v=637970528397200000",
-      "title": "Polo Basico",
-      "price": 159.99,
-      "description":" Polo Basico Ladrillo Hombre y conviértelo en pieza clave de tu outfit esta temporada de primavera verano",
-      "category": "Hombres",
-  
-      "itHasDues": true,
-      "isAnOffer": true
-    }
+    
   ]
