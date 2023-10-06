@@ -1,3 +1,5 @@
+// Función que muestra u oculta el carrito de compras y su modal correspondiente.
+
 export function showCart(cartUl, cartModal) {
     if (cartUl.classList.contains('active')) {
         cartUl.classList.remove('active');

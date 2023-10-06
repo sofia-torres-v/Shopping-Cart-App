@@ -1,3 +1,4 @@
+// Datos de ejemplo para productos
 export default  [
     {
       "id": 1,
