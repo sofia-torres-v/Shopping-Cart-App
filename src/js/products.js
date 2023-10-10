@@ -1,4 +1,4 @@
-import { showCart } from "./showCart.js"
+import { showCart } from "./showModal.js"
 
 
 let cart = [];
@@ -39,9 +39,26 @@ function leerData(item, cartBody) {
         id : item.querySelector('button').getAttribute('data-id'),
         quantity: 1
     } 
-    cart = [...cart, obj]
+
+    const existe = cart.some(item => item.id === obj.id)
+
+    if (existe) {
+        const newResul = cart.map(item => {
+            if (item.id === obj.id) {
+                item.quantity++;
+                return item;
+            } else {
+                return item;
+            }
+        })
+        cart = [...newResul]  
+    } else {
+        cart = [...cart, obj]  
+    }
+
     cartHtml(cart, cartBody);
 }
+
 
 // Función que actualiza la interfaz de usuario del carrito.
 function cartHtml(cart, cartBody) {

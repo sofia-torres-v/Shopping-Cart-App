@@ -6,39 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Document</title>
-       <!-- Enlaces a las hojas de estilo -->
+    <!-- Enlaces a las hojas de estilo -->
     <link rel="stylesheet" href="../src/style.css" />
-     <!-- Enlaces a las fuentes de Google -->
+    <!-- Enlaces a las fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <header class="header">
+
         <nav class="header__menu container">
-             <!-- Menú, icono y logotipo -->
             <div class="header__content1">
-                <span class="header__logo">ShopPlus</span>
-            </div>
-            <!-- Iconos de usuario y carrito -->
-            <div class="header__content2">
-                <div class="content2__logo">
-                    <span class="bx-span">Iniciar sesión</span>
-                    <i class='bx bx-user  bx-lg header__icon'></i>
-                </div>
-                
-                <div class="content2__logo">
-                    <span class="bx-span">Carrito</span>
-                    <i class='bx bx-cart bx-lg header__icon' id='icon-cart'></i>
+                <i class='bx bx-menu bx-md header__icon' id="header__icon" ></i>
+                <div class="content">
+                    <span>Buscar</span>
+                    <i class='bx bx-search bx-md header__icon'></i>
                 </div>
             </div>
 
-            <!-- input de buscador -->
-            <div class="header__box-inp">
-                <input class="header__inp" type="text" />
-                <img class="header__search" src="../src//images/buscador.png" alt="" />
+            <span class="header__logo logo-movil" >GlamStore</span>
+            <div class="modal ">
+                <i class='bx bx-x modal__icon-delete' ></i>
+                <ul class="header__enlaces">
+                    <span class="header__logo logo-mobil">GlamStore</span>
+                    <li><a class="header__link" href="">Colección</a></li>
+                    <li><a class="header__link" href="">Lo Nuevo</a></li>
+                    <li><a class="header__link" href="">Dama</a></li>
+                    <li><a class="header__link" href="">Caballeros</a></li>
+                    <li><a class="header__link" href="">Niños</a></li>
+                </ul>
             </div>
+
+
+            <!-- Iconos de usuario y carrito -->
+            <div class="header__content2">
+                <div class="content">
+                    <span>Cuenta</span>
+                    <i class='bx bx-user  bx-md header__icon'></i>
+                </div>
+
+                <div class='content' id='icon-cart'>
+                    <span>Carrito</span>
+                    <i class='bx bx-cart bx-md header__icon'></i>
+                </div>
+            </div>
+
+         
 
             <!-- Modal del carrito -->
             <div class="cart__modal">
@@ -60,10 +80,18 @@
             </div>
 
         </nav>
+
+
     </header>
 
     <main>
         <section class="main">
+
+            <div class="main__banner">
+                <img src="./images/011.jpg" alt="">
+
+
+            </div>
             <div class="main__content-grid container">
                 <!-- Contenido principal de productos (generado con JS) -->
             </div>
@@ -81,3 +109,4 @@
 </body>
 
 </html>
+
