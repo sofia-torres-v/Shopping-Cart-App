@@ -1,5 +1,5 @@
 import data from './mock/data.js';
-import { getProduct, addProduct, deletedItem, getStorage} from './js/products.js'
+import { getProduct, addProduct, deletedItem, getStorage, increment, disminuir, clearCart} from './js/products.js'
 import { showCart, showMenu } from './js/showModal.js';
 
 
@@ -22,6 +22,8 @@ const modalMenu = document.querySelector('.modal');
 const closeMenu= document.querySelector('.modal__icon-delete');
 
 const headerIcons = document.querySelector('.header__content2');
+const clearBtn = document.querySelector('.cart__button');
+
 
 
 // Función principal para escuchar eventos.
@@ -40,4 +42,9 @@ function listener() {
     cartBody.addEventListener('click', (e)=> deletedItem(e, cartBody))
 
     document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody));
+
+    cartBody.addEventListener('click', (e)=>increment(e))
+    cartBody.addEventListener('click', (e)=>disminuir(e))
+
+    clearBtn.addEventListener('click', ()=>clearCart(cartBody))
 }

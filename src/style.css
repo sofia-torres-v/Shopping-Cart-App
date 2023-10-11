@@ -6,6 +6,7 @@
 
 html{
     font-size: 62.5%;
+    font-family: 'Outfit', sans-serif;
 }
 
 .container{
@@ -17,7 +18,7 @@ html{
 
 /* --------------------------header----------------- */
 .header{
-    background-color: rgb(52, 14, 54);
+    background-color: rgb(61, 18, 63);
     padding: 10px 0;
 }
 
@@ -97,8 +98,6 @@ html{
     text-decoration: none;
     color: #fff;
     font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Outfit', sans-serif;
 }
 
 
@@ -294,7 +293,7 @@ html{
 .footer{
     color: #fff;
     background-color:  rgb(42, 10, 44);
-    padding: 15px 0;
+    padding: 30px 0;
 }
 
 .footer__info{

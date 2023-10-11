@@ -40,6 +40,7 @@ function leerData(item, cartBody) {
         quantity: 1
     } 
 
+    // Si existe algun producto eb el carrito con el mismo id aumentamos su cantidad
     const existe = cart.some(item => item.id === obj.id)
 
     if (existe) {
@@ -77,9 +78,9 @@ function cartHtml(cart, cartBody) {
                                         <p>subtotal</p>
                                         <div class='cart__details-group'>
                                             <div class="cart__gropu-btn" >
-                                                <button class="cart__btn-minus" >-</button>
+                                                <button data-id="${item.id}" class="cart__btn-minus" >-</button>
                                                 <input type="text" value='${item.quantity}'>
-                                                <button class="cart__btn-plus" >+</button>
+                                                <button data-id="${item.id}" class="cart__btn-plus" >+</button>
                                             </div>
                                             <p>${item.price}</p>
                                         </div>
@@ -117,4 +118,47 @@ function addLocalStorage() {
 export function getStorage(cartBody) {
     cart = JSON.parse(localStorage.getItem('itemCart')) || [];  
     cartHtml(cart, cartBody)
+}
+
+
+// Incrementar la cantidad en items
+
+export function increment(e) {
+    if (e.target.classList.contains('cart__btn-plus')) {
+        const ID = e.target.getAttribute('data-id');
+        const itemFind = cart.find(item => item.id === ID)
+        
+        const cartButton = e.target.parentElement;
+        const inp = cartButton.querySelector('input');
+        inp.value ++;
+
+        const inpUpdate = Number(inp.value);
+        itemFind.quantity = inpUpdate;
+    }
+}
+
+// Decrementar la cantidad en items
+
+export function disminuir(e) {
+    if (e.target.classList.contains('cart__btn-minus')) {
+        const ID = e.target.getAttribute('data-id');
+        const itemFind = cart.find(item => item.id === ID)
+        
+        const cartButton = e.target.parentElement;
+        const inp = cartButton.querySelector('input');
+        if (inp.value > 1) {
+            inp.value--;
+        }
+
+        const inpUpdate = Number(inp.value);
+        itemFind.quantity = inpUpdate;
+    }
+}
+
+// Limpiar el carrito 
+
+export function clearCart(cartBody) {
+   cart = [] ;
+   cartHtml(cart, cartBody)
+   console.log('click')
 }
