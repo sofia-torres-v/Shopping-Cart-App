@@ -1,8 +1,9 @@
-import { showCart } from "./showCart.js"
+import { showCart } from "./showModal.js"
 
 
 let cart = [];
 
+// Función que muestra productos en la interfaz de usuario.
 export function getProduct(data, contentProducts) {
     data.forEach(item => {
         const div = document.createElement('div');
@@ -19,15 +20,16 @@ export function getProduct(data, contentProducts) {
     });    
 }
 
-
-export function addProduct(e, cartBody,cartUl,cartModal) {
+// Función que se llama al hacer clic en el botón "Add" de un producto.
+export function addProduct(e, cartBody,cartModal,cartUl) {
    if (e.target.classList.contains('main__info-add')) {
     const item = e.target.parentElement;
     leerData(item, cartBody);
-    showCart(cartUl, cartModal);
+    showCart(cartModal, cartUl);
    }
 }
 
+// Función que lee la información del producto y lo agrega al carrito.
 function leerData(item, cartBody) {
     const obj = {
         image : item.querySelector('img').src,
@@ -36,12 +38,30 @@ function leerData(item, cartBody) {
         category: item.querySelector('p').textContent,
         id : item.querySelector('button').getAttribute('data-id'),
         quantity: 1
+    } 
+
+    // Si existe algun producto eb el carrito con el mismo id aumentamos su cantidad
+    const existe = cart.some(item => item.id === obj.id)
+
+    if (existe) {
+        const newResul = cart.map(item => {
+            if (item.id === obj.id) {
+                item.quantity++;
+                return item;
+            } else {
+                return item;
+            }
+        })
+        cart = [...newResul]  
+    } else {
+        cart = [...cart, obj]  
     }
-    
-    cart = [...cart, obj]
+
     cartHtml(cart, cartBody);
 }
 
+
+// Función que actualiza la interfaz de usuario del carrito.
 function cartHtml(cart, cartBody) {
     clearHtml(cartBody);
     cart.forEach(item => {
@@ -53,15 +73,14 @@ function cartHtml(cart, cartBody) {
                                     <div class="cart__description" >
                                         <h3>${item.title}</h3>
                                         <i class='bx bx-trash bx-md cart__deleted'data-id="${item.id}"></i>
-                                 
                                     </div>
                                     <div class="cart__content-details" >
                                         <p>subtotal</p>
                                         <div class='cart__details-group'>
                                             <div class="cart__gropu-btn" >
-                                                <button class="cart__btn-minus" >-</button>
+                                                <button data-id="${item.id}" class="cart__btn-minus" >-</button>
                                                 <input type="text" value='${item.quantity}'>
-                                                <button class="cart__btn-plus" >+</button>
+                                                <button data-id="${item.id}" class="cart__btn-plus" >+</button>
                                             </div>
                                             <p>${item.price}</p>
                                         </div>
@@ -73,27 +92,73 @@ function cartHtml(cart, cartBody) {
 }
 
 
-// Limpiar 
+// Función para limpiar el contenido actual del carrito.
 function clearHtml(cartBody) {
     while (cartBody.firstChild) {
         cartBody.removeChild(cartBody.firstChild)
     }
 }
 
-// Eliminar
+// Función para eliminar un producto del carrito.
 export function deletedItem(e,cartBody) {
     if (e.target.classList.contains('cart__deleted')) {
         const dataId = e.target.getAttribute('data-id')
+        // Filtra el producto a eliminar .
         cart = cart.filter(item => item.id !== dataId)
-         cartHtml(cart, cartBody)
+        cartHtml(cart, cartBody)
     }
 }
 
+// Función para almacenar los datos del carrito en el localStorage.
 function addLocalStorage() {
     localStorage.setItem('itemCart', JSON.stringify(cart))
 }
 
+// Función para obtener los datos almacenados en el localStorage o un array vacío si no hay datos.
 export function getStorage(cartBody) {
     cart = JSON.parse(localStorage.getItem('itemCart')) || [];  
     cartHtml(cart, cartBody)
+}
+
+
+// Incrementar la cantidad en items
+
+export function increment(e) {
+    if (e.target.classList.contains('cart__btn-plus')) {
+        const ID = e.target.getAttribute('data-id');
+        const itemFind = cart.find(item => item.id === ID)
+        
+        const cartButton = e.target.parentElement;
+        const inp = cartButton.querySelector('input');
+        inp.value ++;
+
+        const inpUpdate = Number(inp.value);
+        itemFind.quantity = inpUpdate;
+    }
+}
+
+// Decrementar la cantidad en items
+
+export function disminuir(e) {
+    if (e.target.classList.contains('cart__btn-minus')) {
+        const ID = e.target.getAttribute('data-id');
+        const itemFind = cart.find(item => item.id === ID)
+        
+        const cartButton = e.target.parentElement;
+        const inp = cartButton.querySelector('input');
+        if (inp.value > 1) {
+            inp.value--;
+        }
+
+        const inpUpdate = Number(inp.value);
+        itemFind.quantity = inpUpdate;
+    }
+}
+
+// Limpiar el carrito 
+
+export function clearCart(cartBody) {
+   cart = [] ;
+   cartHtml(cart, cartBody)
+   console.log('click')
 }
