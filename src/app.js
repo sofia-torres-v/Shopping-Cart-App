@@ -1,28 +1,25 @@
 import data from './mock/data.js';
-import { getProduct, addProduct, deletedItem, getStorage, increment, disminuir, clearCart} from './js/products.js'
+import { getProduct, addProduct, deletedItem, getStorage, increaseItem,  decreaseItem, clearCart} from './js/products.js'
 import { showCart, showMenu } from './js/showModal.js';
 
 
 // Seleccionamos el contenedor donde se renderizarán los productos.
 const contentProducts = document.querySelector('.main__content-grid');
 
-// Selecciona elementos relacionados con el modal del carrito de compras.
+// Modal del carrito de compras.
 const cartModal = document.querySelector('.cart__modal');
 const cartUl = document.querySelector('.card__content');
-
 const iconCart = document.querySelector('#icon-cart')
 const closeCart = document.querySelector('.close');
 
-// Seleccionamos el contenedor del cuerpo del carrito.
 const cartBody = document.querySelector('.cart__body');
+const headerIcons = document.querySelector('.header__content2');
+const clearBtn = document.querySelector('.cart__button');
 
 const buttonMenu = document.querySelector('#header__icon');
 const menu = document.querySelector('.header__enlaces');
 const modalMenu = document.querySelector('.modal');
-const closeMenu= document.querySelector('.modal__icon-delete');
-
-const headerIcons = document.querySelector('.header__content2');
-const clearBtn = document.querySelector('.cart__button');
+const closeMenu = document.querySelector('.modal__icon-delete');
 
 
 
@@ -43,8 +40,8 @@ function listener() {
 
     document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody));
 
-    cartBody.addEventListener('click', (e)=>increment(e))
-    cartBody.addEventListener('click', (e)=>disminuir(e))
+    cartBody.addEventListener('click', (e)=>increaseItem(e))
+    cartBody.addEventListener('click', (e)=>decreaseItem(e))
 
     clearBtn.addEventListener('click', ()=>clearCart(cartBody))
 }

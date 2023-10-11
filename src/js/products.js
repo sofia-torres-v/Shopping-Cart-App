@@ -3,7 +3,7 @@ import { showCart } from "./showModal.js"
 
 let cart = [];
 
-// Función que muestra productos en la interfaz de usuario.
+// Mostar productos en la interfaz.
 export function getProduct(data, contentProducts) {
     data.forEach(item => {
         const div = document.createElement('div');
@@ -20,17 +20,17 @@ export function getProduct(data, contentProducts) {
     });    
 }
 
-// Función que se llama al hacer clic en el botón "Add" de un producto.
+// Adición de productos al carrito.
 export function addProduct(e, cartBody,cartModal,cartUl) {
    if (e.target.classList.contains('main__info-add')) {
     const item = e.target.parentElement;
-    leerData(item, cartBody);
-    showCart(cartModal, cartUl);
+    readData(item, cartBody);
+    showCart(cartModal, cartUl);    
    }
 }
 
-// Función que lee la información del producto y lo agrega al carrito.
-function leerData(item, cartBody) {
+// Leer información del producto y agregar al carrito.
+function readData(item, cartBody) {
     const obj = {
         image : item.querySelector('img').src,
         title: item.querySelector('h3').textContent,
@@ -40,10 +40,10 @@ function leerData(item, cartBody) {
         quantity: 1
     } 
 
-    // Si existe algun producto en el carrito con el mismo id aumentamos su cantidad
-    const existe = cart.some(item => item.id === obj.id)
+    // Verificar que no se  dupliquen productos con el mismo id
+    const repeatedProduct = cart.some(item => item.id === obj.id)
 
-    if (existe) {
+    if (repeatedProduct) {
         const newResul = cart.map(item => {
             if (item.id === obj.id) {
                 item.quantity++;
@@ -61,7 +61,7 @@ function leerData(item, cartBody) {
 }
 
 
-// Función que actualiza la interfaz de usuario del carrito.
+// Actualiza la interfaz del carrito.
 function cartHtml(cart, cartBody) {
     clearHtml(cartBody);
     cart.forEach(item => {
@@ -92,14 +92,14 @@ function cartHtml(cart, cartBody) {
 }
 
 
-// Función para limpiar el contenido actual del carrito.
+// Limpiar el contenido actual del carrito.
 function clearHtml(cartBody) {
     while (cartBody.firstChild) {
         cartBody.removeChild(cartBody.firstChild)
     }
 }
 
-// Función para eliminar un producto del carrito.
+
 export function deletedItem(e,cartBody) {
     if (e.target.classList.contains('cart__deleted')) {
         const dataId = e.target.getAttribute('data-id')
@@ -109,21 +109,18 @@ export function deletedItem(e,cartBody) {
     }
 }
 
-// Función para almacenar los datos del carrito en el localStorage.
+
 function addLocalStorage() {
     localStorage.setItem('itemCart', JSON.stringify(cart))
 }
 
-// Función para obtener los datos almacenados en el localStorage o un array vacío si no hay datos.
+// Obtener datos del localStorage o un array vacío si no hay datos.
 export function getStorage(cartBody) {
     cart = JSON.parse(localStorage.getItem('itemCart')) || [];  
     cartHtml(cart, cartBody)
 }
 
-
-// Aumentar la cantidad en items
-
-export function increment(e) {
+export function increaseItem(e) {
     if (e.target.classList.contains('cart__btn-plus')) {
         const ID = e.target.getAttribute('data-id');
         const itemFind = cart.find(item => item.id === ID)
@@ -137,9 +134,7 @@ export function increment(e) {
     }
 }
 
-// Disminuir la cantidad en items
-
-export function disminuir(e) {
+export function decreaseItem(e) {
     if (e.target.classList.contains('cart__btn-minus')) {
         const ID = e.target.getAttribute('data-id');
         const itemFind = cart.find(item => item.id === ID)
@@ -155,10 +150,26 @@ export function disminuir(e) {
     }
 }
 
-// Limpiar el carrito 
-
 export function clearCart(cartBody) {
-   cart = [] ;
-   cartHtml(cart, cartBody)
-   console.log('click')
+    confirmClearCart(cartBody)
+    // cart = [] ;
+}
+
+// Modal confirmación con sweetAlert
+export function confirmClearCart(cartBody){
+    swal.fire({
+        title:'¿Deseas eliminar todos tus productos?',
+        icon:'question',
+        showCancelButton: 'cancelar',
+        confirmButtonText: 'vaciar'
+    }).then((result)=>{
+        if(result.isConfirmed){
+            cart = [];
+            cartHtml(cart, cartBody)
+            swal.fire({
+                title: 'carrito vacio',
+                icon : 'success'
+            })
+        }
+    })
 }
