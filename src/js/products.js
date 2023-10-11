@@ -40,7 +40,7 @@ function leerData(item, cartBody) {
         quantity: 1
     } 
 
-    // Si existe algun producto eb el carrito con el mismo id aumentamos su cantidad
+    // Si existe algun producto en el carrito con el mismo id aumentamos su cantidad
     const existe = cart.some(item => item.id === obj.id)
 
     if (existe) {
@@ -121,7 +121,7 @@ export function getStorage(cartBody) {
 }
 
 
-// Incrementar la cantidad en items
+// Aumentar la cantidad en items
 
 export function increment(e) {
     if (e.target.classList.contains('cart__btn-plus')) {
@@ -137,7 +137,7 @@ export function increment(e) {
     }
 }
 
-// Decrementar la cantidad en items
+// Disminuir la cantidad en items
 
 export function disminuir(e) {
     if (e.target.classList.contains('cart__btn-minus')) {
