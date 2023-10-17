@@ -1,28 +1,27 @@
 import data from './mock/data.js';
-import { getProduct, addProduct, deletedItem, getStorage, increment, disminuir, clearCart} from './js/products.js'
+import { getProduct, addProduct, deletedItem, getStorage, increaseItem,  decreaseItem, clearCart} from './js/products.js'
 import { showCart, showMenu } from './js/showModal.js';
 
 
 // Seleccionamos el contenedor donde se renderizarán los productos.
 const contentProducts = document.querySelector('.main__content-grid');
 
-// Selecciona elementos relacionados con el modal del carrito de compras.
+// Modal del carrito de compras.
 const cartModal = document.querySelector('.cart__modal');
 const cartUl = document.querySelector('.card__content');
-
 const iconCart = document.querySelector('#icon-cart')
 const closeCart = document.querySelector('.close');
 
-// Seleccionamos el contenedor del cuerpo del carrito.
 const cartBody = document.querySelector('.cart__body');
+const headerIcons = document.querySelector('.header__content2');
+const clearBtn = document.querySelector('.cart__button');
 
 const buttonMenu = document.querySelector('#header__icon');
 const menu = document.querySelector('.header__enlaces');
 const modalMenu = document.querySelector('.modal');
-const closeMenu= document.querySelector('.modal__icon-delete');
+const closeMenu = document.querySelector('.modal__icon-delete');
+const totalDiv = document.querySelector('#cart-total');
 
-const headerIcons = document.querySelector('.header__content2');
-const clearBtn = document.querySelector('.cart__button');
 
 
 
@@ -33,18 +32,24 @@ function listener() {
     closeMenu.addEventListener('click', ()=>showMenu(menu, modalMenu, headerIcons));
 
 
-    document.addEventListener('DOMContentLoaded', ()=> getProduct(data, contentProducts));
+    document.addEventListener('DOMContentLoaded', ()=> {
+        getProduct(data, contentProducts);
+        clearBtn.classList.add('active');
+        // clearBtn.disabled = true;
+    });
 
     iconCart.addEventListener('click',()=> showCart(cartUl,cartModal))
     closeCart.addEventListener('click',  ()=> showCart(cartUl,cartModal));
 
-    contentProducts.addEventListener('click', (e)=> addProduct(e, cartBody, cartUl, cartModal));
-    cartBody.addEventListener('click', (e)=> deletedItem(e, cartBody))
+    contentProducts.addEventListener('click', (e)=> addProduct(e, cartBody, cartUl, cartModal, totalDiv, clearBtn));
+    cartBody.addEventListener('click', (e)=> deletedItem(e, cartBody, totalDiv, clearBtn))
 
-    document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody));
+    document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody,totalDiv));
 
-    cartBody.addEventListener('click', (e)=>increment(e))
-    cartBody.addEventListener('click', (e)=>disminuir(e))
+    cartBody.addEventListener('click', (e)=>increaseItem(e, totalDiv))
+    cartBody.addEventListener('click', (e)=>decreaseItem(e, totalDiv))
 
-    clearBtn.addEventListener('click', ()=>clearCart(cartBody))
+    clearBtn.addEventListener('click', ()=>clearCart(cartBody,totalDiv, clearBtn))
+
+
 }
