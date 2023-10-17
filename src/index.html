@@ -5,26 +5,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
-    <!-- Enlaces a las hojas de estilo -->
-    <link rel="stylesheet" href="../src/style.css" />
-    <!-- Enlaces a las fuentes de Google -->
+    <title>GlamStore</title>
+    <!-- Imagen para la pestaña de navegación  -->
+    <link rel="shortcut icon" href="./images/logoGlamStore.png" />
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
-
-  <!-- SweetAlert2 desde la CDN  -->
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Estilos css -->
+    <link rel="stylesheet" href="../src/style.css" />
+    <!-- Biblioteca SweetAlert2 -->  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body>
     <header class="header">
-
         <nav class="header__menu container">
             <div class="header__content1">
                 <i class='bx bx-menu bx-md header__icon' id="header__icon" ></i>
@@ -47,7 +44,6 @@
                 </ul>
             </div>
 
-
             <!-- Iconos de usuario y carrito -->
             <div class="header__content2">
                 <div class="content">
@@ -61,14 +57,12 @@
                 </div>
             </div>
 
-         
-
             <!-- Modal del carrito -->
             <div class="cart__modal">
                 <ul class="card__content">
                     <li class="cart__head">
-                        <h3>CART <span>(Item)</span></h3>
-                        <i class='close bx bx-x'></i>
+                        <h3>Tus  productos</h3>
+                        <i class='close bx bx-x bx-lg '></i>
                     </li>
 
                     <li class="cart__body">
@@ -76,15 +70,13 @@
                     </li>
 
                     <li class="cart__footer">
-                        <button class="cart__button">Clear cart</button>
-                        <p>Total: <span>$00</span> </p>
+                        <button class="cart__button">Eliminar compra</button>
+                        <p class="cart__button-total">Total: <span id="cart-total">0</span> </p>
                     </li>
                 </ul>
             </div>
 
         </nav>
-
-
     </header>
 
     <main>
@@ -92,8 +84,6 @@
 
             <div class="main__banner">
                 <img src="./images/011.jpg" alt="">
-
-
             </div>
             <div class="main__content-grid container">
                 <!-- Contenido principal de productos (generado con JS) -->
@@ -107,6 +97,7 @@
             <p class="footer__info-text">Perú - Ciudad Av.Las Flores Nz S3 Lte-20 Las Lomas</p>
         </div>
     </footer>
+
 
     <script src="./app.js" type="module"></script>
 </body>

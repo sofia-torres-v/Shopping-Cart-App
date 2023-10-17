@@ -20,6 +20,8 @@ const buttonMenu = document.querySelector('#header__icon');
 const menu = document.querySelector('.header__enlaces');
 const modalMenu = document.querySelector('.modal');
 const closeMenu = document.querySelector('.modal__icon-delete');
+const totalDiv = document.querySelector('#cart-total');
+
 
 
 
@@ -30,18 +32,24 @@ function listener() {
     closeMenu.addEventListener('click', ()=>showMenu(menu, modalMenu, headerIcons));
 
 
-    document.addEventListener('DOMContentLoaded', ()=> getProduct(data, contentProducts));
+    document.addEventListener('DOMContentLoaded', ()=> {
+        getProduct(data, contentProducts);
+        clearBtn.classList.add('active');
+        // clearBtn.disabled = true;
+    });
 
     iconCart.addEventListener('click',()=> showCart(cartUl,cartModal))
     closeCart.addEventListener('click',  ()=> showCart(cartUl,cartModal));
 
-    contentProducts.addEventListener('click', (e)=> addProduct(e, cartBody, cartUl, cartModal));
-    cartBody.addEventListener('click', (e)=> deletedItem(e, cartBody))
+    contentProducts.addEventListener('click', (e)=> addProduct(e, cartBody, cartUl, cartModal, totalDiv, clearBtn));
+    cartBody.addEventListener('click', (e)=> deletedItem(e, cartBody, totalDiv, clearBtn))
 
-    document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody));
+    document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody,totalDiv));
 
-    cartBody.addEventListener('click', (e)=>increaseItem(e))
-    cartBody.addEventListener('click', (e)=>decreaseItem(e))
+    cartBody.addEventListener('click', (e)=>increaseItem(e, totalDiv))
+    cartBody.addEventListener('click', (e)=>decreaseItem(e, totalDiv))
 
-    clearBtn.addEventListener('click', ()=>clearCart(cartBody))
+    clearBtn.addEventListener('click', ()=>clearCart(cartBody,totalDiv, clearBtn))
+
+
 }
