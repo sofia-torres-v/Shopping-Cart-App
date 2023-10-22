@@ -31,6 +31,9 @@ html{
 
 .header__content1, .header__content2{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 .header__logo{
@@ -38,17 +41,86 @@ html{
     font-family: 'Pacifico', cursive;   
 }
 
-.header__icon{
-    width: 30px;
+.bx{
+    font-size: 2.8rem;
+}
+
+.bx-search{
+    margin-left: 5px;
 }
 
 .header__enlaces span{
     font-size: 2.5rem;
 }
 
-.bx-span{
-    font-size: 1.5rem;
-    padding-right: 5px;
+/* ----------------------------------------- */
+.modal__search{
+    background: rgba(0, 0, 0, 0.459);
+    position: fixed;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 500ms ease;
+}
+
+.modal__search.isActive{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal__search-box{
+    background-color: #faf7f7;
+    position: relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 40vh;
+    padding-bottom: 35px;
+    width: 100%;
+}
+
+.search__icon-delete{
+    font-size: 3.8rem;
+    color: #4e4d4d;
+    position: absolute;
+    top: 10%;
+    left: 95%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.modal__input-box{
+    width: 90%;
+    position: relative;
+    border-radius: 5px;
+    background-color: #f9f6f6;
+}
+
+.modal__input{
+    width: 100%;
+    padding: 17px;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    outline: none;
+    padding-left: 40px;
+}
+
+.modal__input::placeholder {
+    color: #3a3939; 
+}
+
+.search__icon-inp{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #575555;
+    font-size: 2.5rem;
 }
 
 
@@ -62,8 +134,8 @@ html{
     right: 0;
     left: 0;
     top: 0;
-    opacity: 0;
     visibility: hidden;
+    opacity: 0;
     transition: all 500ms ease;
 }
 
@@ -107,11 +179,38 @@ html{
     transform: translateY(-50%);
 }
 
-.content span{
+.header__content1-text, .header__content2-text{
     display: none;
 }
 
 /* --------------------------main----------------------------- */
+.main{
+    background-color: #f5f1f1;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.text-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 10px;
+  }
+  
+  .line {
+    width: 18%; 
+    border-top: 1px solid #4b4848; 
+  }
+  
+  .line-text{
+    font-size: 3.5rem; 
+    margin: 0 20px ;
+    font-family: 'Courgette', cursive;
+    color: #3a3939;
+  }
+  
+  
 .main__banner img{
     width: 100%;
 }
@@ -119,18 +218,15 @@ html{
 .main__content-grid{
     padding: 30px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* gap: 15px; */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
 }
 
-.main__title{
-    text-align: center;
-    font-size: 3rem;
-}
 
 .main__product{
-    padding:  10px;
     text-align: center;
+    border: 2px solid #b19bbb;
+    border-radius: 8px;
 }
 
 .main__info-subtitle,
@@ -141,24 +237,28 @@ html{
 
 .main__product img{
     width: 100%;
-    height: 65%;
+    height:70%;
     /* object-fit: cover; */
+    border-radius: 8px 12px 0 0;
 }
 
 .main__info{
     padding:20px 0;
-    /* min-height: 135px; */
 }
 
 .main__info-add{
     padding: 8px 0;
-    margin-bottom: 15px;
-    width: 90%;
+    border-radius: 8px;
+    width: 60%;
+    background-color: #583c64;
     cursor: pointer;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
 }
 
 /* ------------------------------cart --------------------- */
-#icon-cart, .cart__deleted, .cart__btn-minus, .cart__btn-plus{
+#search-icon, #icon-cart, .cart__deleted, .cart__btn-minus, .cart__btn-plus{
     cursor: pointer;
 }
 
@@ -258,11 +358,11 @@ html{
 .cart__button-total{
     color: #000;
     font-weight: bold;
-    /* padding-right: 10px; */
 }
 .cart-footer #cart-total{
     color: #000;
 }
+
 .cart__button:hover {
     background-color: #1a1919; 
 }
@@ -298,12 +398,13 @@ html{
     padding: 8px;
     color: #000;
     border-radius: 50%;
-    transition: background-color 0.3s;
-    &:hover {
-      background-color: lightcoral; 
-      color: white; 
-      border-radius: 50%;
-    }
+    border-radius: 50%;
+}
+
+.cart__deleted:hover{
+    background-color: lightcoral;  
+    transition:  0.3s;
+    color: #fff;
 }
 
 .cart__description-title{
@@ -336,10 +437,6 @@ html{
 }
 
 
-
-
-
-
 /* -------------------------footer----------------------- */
 .footer{
     color: #fff;
@@ -352,8 +449,7 @@ html{
     justify-content: space-between;
     flex-wrap: wrap;
     line-height: 20px;
-    font-family: 'Poppins', sans-serif
-    ;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footer__info-text{
@@ -373,6 +469,7 @@ html{
     .header__logo{
         font-size: 3rem;
     }
+
     .header__enlaces{
         position: inherit; 
         height: auto;
@@ -399,29 +496,34 @@ html{
         display: none;
     }
 
+    .header__content1-content, .header__content2-content{
+        display: flex;
+        align-items: flex-end;
+        font-size: 1.5rem;
+        margin-left: 20px;
+    }
+   
     .header__content1{
         order: 2;
         margin-left: auto;
     }
-
-    .content{
-        display: flex;
-        align-items: flex-end;
-        gap: 10px;
-        font-size: 1.5rem;
-        margin-left: 10px;
-    }
-
     .header__content2{
         order: 3;
     }
      
-    .content span{
+    .header__content1-text, .header__content2-text{
         display: inherit;
         font-family: 'Outfit', sans-serif;
     }
 
-    
+    .modal__input-box{
+        width: 60%;
+    }
+
+    .search__icon-delete{
+        position: absolute;
+        left: 82%;
+    }
 }
 
 

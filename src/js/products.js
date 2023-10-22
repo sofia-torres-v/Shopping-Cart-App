@@ -4,28 +4,28 @@ let cart = [];
 
 // Mostar productos en la interfaz.
 export function getProduct(data, contentProducts) {
-    data.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add('main__product');
+    data.forEach((item) => {
+        const div = document.createElement("div");
+        div.classList.add("main__product");
         div.innerHTML = ` <img src="${item.image}">
                             <div class="main__info">
                                 <h3 class="main__info-subtitle">${item.title}</h3>
                                 <p class="main__info-price"> ${item.price}</p>
                                 <span class="main__info-categoria">${item.category}</span>
-                            </div>
-                            <button class="main__info-add" data-id='${item.id}'> Add</button>`
+                                </div>
+                                <button class="main__info-add" data-id='${item.id}'> Agregar</button>`;
 
         contentProducts.appendChild(div);
-    });    
+    });
 }
 
 // Adición de productos al carrito.
-export function addProduct(e, cartBody, cartModal, cartUl, totalDiv,clearBtn) {
+export function addProduct(e, cartBody, cartModal, cartUl, totalDiv, clearBtn) {
     if (e.target.classList.contains("main__info-add")) {
         const item = e.target.parentElement;
         readData(item, cartBody, totalDiv);
         showCart(cartModal, cartUl);
-        clearBtn.classList.remove('active')
+        clearBtn.classList.remove("active");
     }
 }
 
@@ -107,15 +107,15 @@ function clearHtml(cartBody) {
     }
 }
 
-export function deletedItem(e, cartBody, totalDiv,clearBtn) {
+export function deletedItem(e, cartBody, totalDiv, clearBtn) {
     if (e.target.classList.contains("cart__deleted")) {
         const dataId = e.target.getAttribute("data-id");
         // Filtra el producto a eliminar .
         cart = cart.filter((item) => item.id !== dataId);
-        cartHtml(cart, cartBody,totalDiv);
+        cartHtml(cart, cartBody, totalDiv);
 
         if (!cart.length) {
-            clearBtn.classList.add('active')
+            clearBtn.classList.add("active");
         }
     }
 }
@@ -125,9 +125,9 @@ function addLocalStorage() {
 }
 
 // Obtener datos del localStorage o un array vacío si no hay datos.
-export function getStorage(cartBody,totalDiv) {
+export function getStorage(cartBody, totalDiv) {
     cart = JSON.parse(localStorage.getItem("itemCart")) || [];
-    cartHtml(cart, cartBody,totalDiv);
+    cartHtml(cart, cartBody, totalDiv);
 }
 
 export function increaseItem(e, totalDiv) {
@@ -141,10 +141,9 @@ export function increaseItem(e, totalDiv) {
 
         const inpUpdate = Number(inp.value);
         itemFind.quantity = inpUpdate;
-         // Total del carrito
-         totalAdditionPrice(totalDiv);
+        // Total del carrito
+        totalAdditionPrice(totalDiv);
     }
-
 }
 
 export function decreaseItem(e, totalDiv) {
@@ -169,27 +168,29 @@ export function clearCart(cartBody, totalDiv, clearBtn) {
             title: "¿Deseas eliminar todos tus productos?",
             icon: "question",
             showCancelButton: "Cancelar",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
             confirmButtonText: "Vaciar",
         }).then((result) => {
             if (result.isConfirmed) {
                 cart = [];
-                cartHtml(cart, cartBody, totalDiv, );
+                cartHtml(cart, cartBody, totalDiv);
                 swal.fire({
                     title: "Carrito vacío",
                     icon: "success",
                 });
-                clearBtn.classList.add('active')
+                clearBtn.classList.add("active");
             }
         });
     }
 }
 
-
 // Precio total de productos
- function totalAdditionPrice(totalDiv) {
-    let total = cart.reduce((acc, item) => acc + Number(item.price) * item.quantity, 0);
-    total = Number(total.toFixed(2))
+function totalAdditionPrice(totalDiv) {
+    let total = cart.reduce(
+        (acc, item) => acc + Number(item.price) * item.quantity,
+        0
+    );
+    total = Number(total.toFixed(2));
     totalDiv.textContent = total;
 }
-  
-
