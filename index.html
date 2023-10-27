@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlamStore</title>
+
+    <link rel="shortcut icon" href="./images/logoGlamStore.png" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200&family=Courgette&family=Pacifico&family=Poppins:wght@300&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Pacifico&family=Poppins:wght@300&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./styles/mobile.css" />
+    <link rel="stylesheet" href="./styles/desktop.css" media="(min-width: 800px)" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__menu container">
+            <div class="header__content1">
+                <i class="bx bx-menu header__icon" id="header__icon"></i>
+                <div class="header__content1-content" id="search-icon">
+                    <span class="header__content1-text">Buscar</span>
+                    <i class="bx bx-search"></i>
+                </div>
+                <!-- Modal buscador oculto  -->
+                <div class="modal__search">
+                    <div class="modal__search-box">
+                        <div class="modal__content-search">
+                            <i class="bx bx-x search__icon-delete" id="search-icon"></i>|
+                            <div class="modal__input-box">
+                                <input class="modal__input" type="text" placeholder="Buscar productos..."
+                                    id="search-input" />
+                                <i class="search__icon-inp bx bx-search"></i>
+                            </div>
+                        </div>
+
+                        <div class="modal__content-filter">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span class="header__logo logo-mobile">GlamStore</span>
+            <!-- Modal menu oculto -->
+            <div class="modal">
+                <i class="bx bx-x modal__icon-delete"></i>
+                <ul class="header__enlaces">
+                    <span class="header__logo logo-mobil">GlamStore</span>
+                    <li><a class="header__link" href="">Inicio</a></li>
+                    <li>
+                        <a class="header__link" href="#colection">Nuestra Colección</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="header__content2">
+                <div class="header__content2-content">
+                    <span class="header__content2-text">Cuenta</span>
+                    <i class="bx bx-user"></i>
+                </div>
+
+                <div class="header__content2-content" id="icon-cart">
+                    <span class="header__content2-text">Carrito</span>
+                    <i class="bx bx-cart"></i>
+                </div>
+            </div>
+
+            <!-- Modal carrito oculto-->
+            <div class="cart__modal">
+                <ul class="card__content">
+                    <li class="cart__head">
+                        <h3>Tus productos</h3>
+                        <i class="close bx bx-x bx-lg"></i>
+                    </li>
+
+                    <li class="cart__body">
+                    </li>
+
+                    <li class="cart__footer">
+                        <button class="cart__button">
+                            Eliminar compra
+                        </button>
+                        <p class="cart__button-total">
+                            Total: <span id="cart-total">0</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="main">
+            <div class="main__banner">
+                <img src="./images/banner.jpg" alt="" />
+            </div>
+
+            <div class="text-block" id="colection">
+                <div class="line"></div>
+                <p class="line-text">Nuestra Colección</p>
+                <div class="line"></div>
+            </div>
+
+            <div class="main__content-grid container">
+            </div>
+        </section>
+
+        <section class="main__icons">
+            <h2>Encuentra Moda y Comodidad</h2>
+            <div class="main__icon-box">
+                <div class="icon__box">
+                    <i class="bx bxs-plane-alt"></i>
+                    <p>Envíos a todo el Perú</p>
+                </div>
+                <div class="icon__box">
+                    <i class="bx bx-donate-heart"></i>
+                    <p>Donaciones caritativas</p>
+                </div>
+                <div class="icon__box">
+                    <i class="bx bx-gift"></i>
+                    <p>Regalos y promociones</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__info container">
+            <div class="footer__content1">
+                <span class="header__logo logo-mobile">GlamStore </span>
+                <p>Tienda de ropa online</p>
+            </div>
+            <div class="footer__info-text">
+                <p>
+                    © Copyright 2023 | Web desarrollada por
+                    <span>Sofia Torres</span>
+                </p>
+            </div>
+
+            <div class="footer__content2">
+                <p>Síguenos en:</p>
+                <div class="footer__box-icons">
+                    <i class="bx bxl-facebook-circle footer__icon"></i>
+                    <i class="bx bxl-twitter footer__icon"></i>
+                    <i class="bx bxl-instagram-alt footer__icon"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+.header {
+    padding: 0;
+}
+
+#header__icon {
+    display: none;
+}
+
+.header__logo {
+    font-size: 3rem;
+}
+
+.header__enlaces {
+    position: inherit;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    transition: none;
+    background-color: transparent;
+}
+
+.modal {
+    position: inherit;
+    background: none;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    width: auto;
+    transition: none;
+    margin-left: 5%;
+}
+
+.modal__icon-delete, .logo-mobil {
+    display: none;
+}
+
+.header__content1-content, .header__content2-content {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+.header__content1 {
+    order: 2;
+    margin-left: auto;
+}
+.header__content2 {
+    order: 3;
+}
+
+.header__content1-text, .header__content2-text {
+    display: inherit;
+    font-family: "Outfit", sans-serif;
+}
+
+.modal__input-box {
+    width: 60%;
+}
+
+.search__icon-delete {
+    left: 65%;
+}
+
+.line-text {
+    font-size: 3.5rem;
+}
+
+.footer__info {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
