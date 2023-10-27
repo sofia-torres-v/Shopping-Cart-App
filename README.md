@@ -11,6 +11,6 @@ Este proyecto es una tienda en línea que ofrece una variedad de ropa para dama.
 ## Capturas de Pantalla
 
 ![Pantalla de inicio](./images/bannerReadme.jpg)
-<!-- ![Carrito de Compras](screenshots/cart.png) -->
+
 
 
