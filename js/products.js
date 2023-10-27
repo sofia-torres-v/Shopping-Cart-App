@@ -1,9 +1,24 @@
-// import Swiper from 'swiper/swiper-bundle';
 import { showCart } from "./showModal.js";
-let cart = [];
 
-// Mostar productos en la interfaz.
-export function getProduct(data, contentProducts) {
+let cart = [];
+let appData;
+
+
+export async function showApi(contentProducts) {
+    try {
+        const response = await fetch('./mock/data.json')
+        const dataProduct = await response.json();
+        getProduct(dataProduct, contentProducts) 
+        appData = dataProduct;
+       
+    } catch (error) {
+        console.log('error')
+    }
+}
+
+
+// Mostrar productos en la interfaz.
+ function getProduct(data, contentProducts) {
     data.forEach((item) => {
         const div = document.createElement("div");
         div.classList.add("main__product");
@@ -19,7 +34,7 @@ export function getProduct(data, contentProducts) {
     });
 }
 
-// Adición de productos al carrito.
+// Carrito de compras.
 export function addProduct(e, cartBody, cartModal, cartUl, totalDiv, clearBtn) {
     if (e.target.classList.contains("main__info-add")) {
         const item = e.target.parentElement;
@@ -29,7 +44,6 @@ export function addProduct(e, cartBody, cartModal, cartUl, totalDiv, clearBtn) {
     }
 }
 
-// Leer información del producto y agregar al carrito.
 function readData(item, cartBody, totalDiv) {
     const obj = {
         image: item.querySelector("img").src,
@@ -40,7 +54,6 @@ function readData(item, cartBody, totalDiv) {
         quantity: 1,
     };
 
-    // Verificar que no se  dupliquen productos con el mismo id
     const repeatedProduct = cart.some((item) => item.id === obj.id);
 
     if (repeatedProduct) {
@@ -100,7 +113,7 @@ function cartHtml(cart, cartBody, totalDiv) {
     addLocalStorage();
 }
 
-// Limpiar el contenido actual del carrito.
+
 function clearHtml(cartBody) {
     while (cartBody.firstChild) {
         cartBody.removeChild(cartBody.firstChild);
@@ -124,7 +137,7 @@ function addLocalStorage() {
     localStorage.setItem("itemCart", JSON.stringify(cart));
 }
 
-// Obtener datos del localStorage o un array vacío si no hay datos.
+// Obtener datos del localStorage o un array vacío .
 export function getStorage(cartBody, totalDiv) {
     cart = JSON.parse(localStorage.getItem("itemCart")) || [];
     cartHtml(cart, cartBody, totalDiv);
@@ -141,9 +154,11 @@ export function increaseItem(e, totalDiv) {
 
         const inpUpdate = Number(inp.value);
         itemFind.quantity = inpUpdate;
-        // Total del carrito
+  
         totalAdditionPrice(totalDiv);
     }
+
+    addLocalStorage();
 }
 
 export function decreaseItem(e, totalDiv) {
@@ -160,8 +175,10 @@ export function decreaseItem(e, totalDiv) {
         itemFind.quantity = inpUpdate;
         totalAdditionPrice(totalDiv);
     }
+    addLocalStorage();
 }
 
+// Modal SweetAlert2
 export function clearCart(cartBody, totalDiv, clearBtn) {
     if (cart.length) {
         swal.fire({
@@ -185,7 +202,7 @@ export function clearCart(cartBody, totalDiv, clearBtn) {
     }
 }
 
-// Precio total de productos
+
 function totalAdditionPrice(totalDiv) {
     let total = cart.reduce(
         (acc, item) => acc + Number(item.price) * item.quantity,
@@ -194,3 +211,37 @@ function totalAdditionPrice(totalDiv) {
     total = Number(total.toFixed(2));
     totalDiv.textContent = total;
 }
+
+
+export function searchByName(searchValue, searchContent) {
+    let filteredData = [];
+
+    if (searchValue.trim() !== "") {
+        filteredData = appData.filter((item) => {
+            return item.name.toLowerCase().includes(searchValue.toLowerCase());
+        });
+    }
+
+    htmlSearchModal(filteredData, searchContent);
+}
+
+
+
+function htmlSearchModal(filteredData,searchContent) {
+    clearHtml(searchContent)
+    filteredData.forEach((item) => {
+        const div = document.createElement("div");
+        div.classList.add("main__product");
+        div.innerHTML = ` <img src="${item.image}">
+                            <div class="main__info">
+                                <h3 class="main__info-subtitle">${item.title}</h3>
+                                <p class="main__info-price"> ${item.price}</p>
+                                <span class="main__info-categoria">${item.category}</span>
+                                </div>
+                                <button class="main__info-add" data-id='${item.id}'> Agregar</button>`;
+
+         searchContent.appendChild(div);
+    }); 
+}
+  
+
