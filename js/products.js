@@ -133,11 +133,12 @@ export function deletedItem(e, cartBody, totalDiv, clearBtn) {
     }
 }
 
+
 function addLocalStorage() {
     localStorage.setItem("itemCart", JSON.stringify(cart));
 }
 
-// Obtener datos del localStorage o un array vacío .
+
 export function getStorage(cartBody, totalDiv) {
     cart = JSON.parse(localStorage.getItem("itemCart")) || [];
     cartHtml(cart, cartBody, totalDiv);
@@ -161,6 +162,7 @@ export function increaseItem(e, totalDiv) {
     addLocalStorage();
 }
 
+
 export function decreaseItem(e, totalDiv) {
     if (e.target.classList.contains("cart__btn-minus")) {
         const ID = e.target.getAttribute("data-id");
@@ -177,6 +179,17 @@ export function decreaseItem(e, totalDiv) {
     }
     addLocalStorage();
 }
+
+
+function totalAdditionPrice(totalDiv) {
+    let total = cart.reduce(
+        (acc, item) => acc + Number(item.price) * item.quantity,
+        0
+    );
+    total = Number(total.toFixed(2));
+    totalDiv.textContent = total;
+}
+
 
 // Modal SweetAlert2
 export function clearCart(cartBody, totalDiv, clearBtn) {
@@ -202,16 +215,7 @@ export function clearCart(cartBody, totalDiv, clearBtn) {
     }
 }
 
-
-function totalAdditionPrice(totalDiv) {
-    let total = cart.reduce(
-        (acc, item) => acc + Number(item.price) * item.quantity,
-        0
-    );
-    total = Number(total.toFixed(2));
-    totalDiv.textContent = total;
-}
-
+// -----------------------------------------------------------------------
 
 export function searchByName(searchValue, searchContent) {
     let filteredData = [];
@@ -224,7 +228,6 @@ export function searchByName(searchValue, searchContent) {
 
     htmlSearchModal(filteredData, searchContent);
 }
-
 
 
 function htmlSearchModal(filteredData,searchContent) {
@@ -244,4 +247,3 @@ function htmlSearchModal(filteredData,searchContent) {
     }); 
 }
   
-

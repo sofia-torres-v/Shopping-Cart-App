@@ -22,7 +22,8 @@ const menu = document.querySelector('.header__enlaces');
 const modalMenu = document.querySelector('.modal');
 const closeMenu = document.querySelector('.modal__icon-delete');
 
-const iconCart = document.querySelector('#icon-cart')
+const iconCart = document.querySelector('#icon-cart');
+const cartItemCount = document.querySelector('#cart__item-count');
 const cartModal = document.querySelector('.cart__modal');
 const cartUl = document.querySelector('.card__content');
 const closeCart = document.querySelector('.close');
@@ -39,8 +40,9 @@ const headerIcons = document.querySelector('.header__content2');
 const clearBtn = document.querySelector('.cart__button');
 const totalDiv = document.querySelector('#cart-total');
 
+export { cartItemCount };
 
-listener();
+
 function listener() {
     buttonMenu.addEventListener('click', ()=>showMenu(menu, modalMenu, headerIcons));
     closeMenu.addEventListener('click', ()=>showMenu(menu, modalMenu, headerIcons));
@@ -71,3 +73,4 @@ function listener() {
 
     clearBtn.addEventListener('click', ()=>clearCart(cartBody,totalDiv, clearBtn));
 }
+listener();

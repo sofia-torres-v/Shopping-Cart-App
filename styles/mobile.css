@@ -33,7 +33,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
 }
 
 .header__logo {
@@ -163,10 +162,10 @@ html {
 /* Modal menú  */
 .modal {
     position: relative;
-    background: rgba(0, 0, 0, 0.459);
+    background: rgba(34, 32, 32, 0.952);
     position: fixed;
     z-index: 12;
-    height: 100vh;
+    height: 100%;
     right: 0;
     left: 0;
     top: 0;
@@ -181,17 +180,18 @@ html {
 }
 
 .header__enlaces {
-    background-color: rgb(96, 131, 131);
+    background-color: #583c64;
     position: fixed;
     top: 0;
     left: 0;
     width: 75%;
-    height: 100vh;
+    height: 70vh;
     list-style: none;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
-    padding: 25px;
+    padding: 100px 20px 80px ;
     left: -100%;
     transition: left 0.5s ease;
 }
@@ -209,15 +209,45 @@ html {
 .modal__icon-delete {
     color: #fff;
     position: absolute;
-    font-size: 4rem;
-    top: 7%;
-    right: 10%;
+    font-size: 4.3rem;
+    top: 5%;
+    right: 14%;
     transform: translateY(-50%);
 }
 
 .header__content1-text, .header__content2-text {
     display: none;
 }
+
+
+/* Icono de carrito (cantidad de productos)  */
+.cart__item-box{
+    position: relative;
+}
+
+#cart__item-count{
+    display: grid;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    min-height: 22px;
+    width: 22px;
+    top: -10px;
+    right: -10px;
+    background-color: lightcoral;
+    border-radius: 50%;
+}
+
+.your-custom-confirm-class {
+    background-color: green;
+    color: white;
+}
+
+.your-custom-cancel-class {
+    background-color: red;
+    color: white;
+}
+
 
 /* ------------------------------------- MAIN -------------------------------------- */
 .main {
@@ -234,15 +264,11 @@ html {
     padding: 10px;
 }
 
-.line {
-    width: 15%;
-    border-top: 1px solid #c0bebe;
-}
-
-.line-text {
-    font-size: 2rem;
+.main__text {
+    font-size: 2.5rem;
     margin: 0 20px;
     color: #3a3939;
+    padding: 20px 0 0;
 }
 
 .main__banner img {
@@ -348,8 +374,8 @@ html {
     right: 0;
     left: 0;
     top: 0;
-    opacity: 0; /* oculta pero no pierde su espacio */
-    visibility: hidden; /* lo saca de su espacio  */
+    opacity: 0; /* oculta sin perder su espacio */
+    visibility: hidden; /* sale de su espacio  */
     transition: all 500ms ease;
 }
 
@@ -474,7 +500,6 @@ html {
     padding: 8px;
     color: #000;
     border-radius: 50%;
-    border-radius: 50%;
 }
 
 .cart__deleted:hover {
@@ -511,6 +536,11 @@ html {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+
+
+
+
 
 /* ------------------------------------ FOOTER --------------------- */
 .footer {
