@@ -10,10 +10,12 @@ export function showMenu(menu, modalMenu) {
     }
 }
 
+
 export function showCart(cartUl, cartModal) {
     cartUl.classList.toggle('active');
     cartModal.classList.toggle('isActive');
 }
+
 
 export function showSearch( searchModalBox, searchModal) {
     searchModalBox.classList.toggle('isActive');
