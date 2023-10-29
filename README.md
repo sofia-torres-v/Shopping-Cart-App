@@ -14,7 +14,7 @@ Este proyecto es una tienda en línea que ofrece una variedad de ropa para dama.
 
 ---
 
-[Enlace a la interfaz de usuario](shopping-cart-3jgmkzqf6-sofia-torres-v.vercel.app)
+[Enlace a la interfaz de usuario](https://shopping-cart-nu-three.vercel.app)
 
 ---
 
