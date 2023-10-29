@@ -23,7 +23,7 @@ const modalMenu = document.querySelector('.modal');
 const closeMenu = document.querySelector('.modal__icon-delete');
 
 const iconCart = document.querySelector('#icon-cart');
-const cartItemCount = document.querySelector('#cart__item-count');
+const cartItemCount = document.querySelector("#cart__item-count");
 const cartModal = document.querySelector('.cart__modal');
 const cartUl = document.querySelector('.card__content');
 const closeCart = document.querySelector('.close');
@@ -39,8 +39,6 @@ const cartBody = document.querySelector('.cart__body');
 const headerIcons = document.querySelector('.header__content2');
 const clearBtn = document.querySelector('.cart__button');
 const totalDiv = document.querySelector('#cart-total');
-
-export { cartItemCount };
 
 
 function listener() {
@@ -63,14 +61,14 @@ function listener() {
     iconCart.addEventListener('click',()=> showCart(cartUl,cartModal));
     closeCart.addEventListener('click',  ()=> showCart(cartUl,cartModal));
 
-    contentProducts.addEventListener('click', (e)=> addProduct(e, cartBody, cartUl, cartModal, totalDiv, clearBtn));
-    cartBody.addEventListener('click', (e)=> deletedItem(e, cartBody, totalDiv, clearBtn));
+    contentProducts.addEventListener('click', (e)=> addProduct(e, cartBody, cartUl, cartModal, totalDiv, clearBtn, cartItemCount));
+    cartBody.addEventListener('click', (e)=> deletedItem(e, cartBody, totalDiv, clearBtn, cartItemCount));
 
-    document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody,totalDiv));
+    document.addEventListener('DOMContentLoaded', ()=> getStorage(cartBody,totalDiv, cartItemCount));
 
-    cartBody.addEventListener('click', (e)=>increaseItem(e, totalDiv));
-    cartBody.addEventListener('click', (e)=>decreaseItem(e, totalDiv));
+    cartBody.addEventListener('click', (e)=>increaseItem(e, totalDiv, cartItemCount));
+    cartBody.addEventListener('click', (e)=>decreaseItem(e, totalDiv, cartItemCount));
 
-    clearBtn.addEventListener('click', ()=>clearCart(cartBody,totalDiv, clearBtn));
+    clearBtn.addEventListener('click', ()=>clearCart(cartBody,totalDiv, clearBtn, cartItemCount));
 }
 listener();

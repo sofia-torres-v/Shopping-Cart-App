@@ -18,6 +18,7 @@ export async function showApi(contentProducts) {
 
 
 // Mostrar productos en la interfaz.
+
  function getProduct(data, contentProducts) {
     data.forEach((item) => {
         const div = document.createElement("div");
@@ -34,14 +35,18 @@ export async function showApi(contentProducts) {
     });
 }
 
-// Carrito de compras.
-export function addProduct(e, cartBody, cartModal, cartUl, totalDiv, clearBtn) {
+
+
+// ----------------------------------------- Carrito de compras -------------------------------------
+
+export function addProduct(e, cartBody, cartModal, cartUl, totalDiv, clearBtn, cartItemCount) {
     if (e.target.classList.contains("main__info-add")) {
         const item = e.target.parentElement;
         readData(item, cartBody, totalDiv);
         showCart(cartModal, cartUl);
         clearBtn.classList.remove("active");
     }
+    updateCartItemCount(cartItemCount);
 }
 
 function readData(item, cartBody, totalDiv) {
@@ -74,7 +79,7 @@ function readData(item, cartBody, totalDiv) {
 }
 
 // Actualiza la interfaz del carrito.
-function cartHtml(cart, cartBody, totalDiv) {
+function cartHtml(cart, cartBody, totalDiv, cartItemCount) {
     clearHtml(cartBody);
     cart.forEach((item) => {
         const div = document.createElement("div");
@@ -89,14 +94,11 @@ function cartHtml(cart, cartBody, totalDiv) {
                                             <i class='bx bx-trash bx-md cart__deleted'data-id="${item.id}"></i>
                                             </div>
                                         </div>
-
                                         <div class="cart__content-details2" >
                                             <p>Precio</p>
                                             <p>${item.price}</p>
                                         </div> 
-
                                     </div>      
-
                                     <div class="cart__content-details" >
                                         <p>Cantidad</p>
                                         <div class="cart__gropu-btn" >
@@ -105,11 +107,11 @@ function cartHtml(cart, cartBody, totalDiv) {
                                             <button data-id="${item.id}" class="cart__btn-plus" >+</button>
                                         </div>
                                     </div>  
-
                                 </div>`;
         cartBody.appendChild(div);
     });
     totalAdditionPrice(totalDiv);
+    updateCartItemCount(cartItemCount);
     addLocalStorage();
 }
 
@@ -120,7 +122,8 @@ function clearHtml(cartBody) {
     }
 }
 
-export function deletedItem(e, cartBody, totalDiv, clearBtn) {
+
+export function deletedItem(e, cartBody, totalDiv, clearBtn, cartItemCount) {
     if (e.target.classList.contains("cart__deleted")) {
         const dataId = e.target.getAttribute("data-id");
         // Filtra el producto a eliminar .
@@ -131,20 +134,11 @@ export function deletedItem(e, cartBody, totalDiv, clearBtn) {
             clearBtn.classList.add("active");
         }
     }
+    updateCartItemCount(cartItemCount);
 }
 
 
-function addLocalStorage() {
-    localStorage.setItem("itemCart", JSON.stringify(cart));
-}
-
-
-export function getStorage(cartBody, totalDiv) {
-    cart = JSON.parse(localStorage.getItem("itemCart")) || [];
-    cartHtml(cart, cartBody, totalDiv);
-}
-
-export function increaseItem(e, totalDiv) {
+export function increaseItem(e, totalDiv, cartItemCount) {
     if (e.target.classList.contains("cart__btn-plus")) {
         const ID = e.target.getAttribute("data-id");
         const itemFind = cart.find((item) => item.id === ID);
@@ -157,13 +151,14 @@ export function increaseItem(e, totalDiv) {
         itemFind.quantity = inpUpdate;
   
         totalAdditionPrice(totalDiv);
+        updateCartItemCount(cartItemCount);
     }
 
     addLocalStorage();
 }
 
 
-export function decreaseItem(e, totalDiv) {
+export function decreaseItem(e, totalDiv, cartItemCount) {
     if (e.target.classList.contains("cart__btn-minus")) {
         const ID = e.target.getAttribute("data-id");
         const itemFind = cart.find((item) => item.id === ID);
@@ -176,6 +171,7 @@ export function decreaseItem(e, totalDiv) {
         const inpUpdate = Number(inp.value);
         itemFind.quantity = inpUpdate;
         totalAdditionPrice(totalDiv);
+        updateCartItemCount(cartItemCount)
     }
     addLocalStorage();
 }
@@ -191,8 +187,27 @@ function totalAdditionPrice(totalDiv) {
 }
 
 
+export function updateCartItemCount(cartItemCount){
+    if (cartItemCount) {
+        cartItemCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+    }
+}
+
+
+function addLocalStorage() {
+    localStorage.setItem("itemCart", JSON.stringify(cart));
+}
+
+
+export function getStorage(cartBody, totalDiv, cartItemCount) {
+    cart = JSON.parse(localStorage.getItem("itemCart")) || [];
+    cartHtml(cart, cartBody, totalDiv);
+    updateCartItemCount(cartItemCount);
+}
+
+
 // Modal SweetAlert2
-export function clearCart(cartBody, totalDiv, clearBtn) {
+export function clearCart(cartBody, totalDiv, clearBtn, cartItemCount) {
     if (cart.length) {
         swal.fire({
             title: "¿Deseas eliminar todos tus productos?",
@@ -210,12 +225,15 @@ export function clearCart(cartBody, totalDiv, clearBtn) {
                     icon: "success",
                 });
                 clearBtn.classList.add("active");
+                updateCartItemCount(cartItemCount);
             }
         });
     }
 }
 
-// -----------------------------------------------------------------------
+
+
+// --------------------------------------- Filtrar en input buscador -------------------------------
 
 export function searchByName(searchValue, searchContent) {
     let filteredData = [];
