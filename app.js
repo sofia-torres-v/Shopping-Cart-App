@@ -70,5 +70,6 @@ function listener() {
     cartBody.addEventListener('click', (e)=>decreaseItem(e, totalDiv, cartItemCount));
 
     clearBtn.addEventListener('click', ()=>clearCart(cartBody,totalDiv, clearBtn, cartItemCount));
+    searchContent.addEventListener('click', (e)=> addProduct(e, cartBody, cartUl, cartModal, totalDiv, clearBtn, cartItemCount));
 }
 listener();

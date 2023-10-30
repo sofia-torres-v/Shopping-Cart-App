@@ -42,14 +42,14 @@ export async function showApi(contentProducts) {
 export function addProduct(e, cartBody, cartModal, cartUl, totalDiv, clearBtn, cartItemCount) {
     if (e.target.classList.contains("main__info-add")) {
         const item = e.target.parentElement;
-        readData(item, cartBody, totalDiv);
+        readData(item, cartBody, totalDiv, cartItemCount);
         showCart(cartModal, cartUl);
         clearBtn.classList.remove("active");
     }
-    updateCartItemCount(cartItemCount);
+
 }
 
-function readData(item, cartBody, totalDiv) {
+function readData(item, cartBody, totalDiv,cartItemCount) {
     const obj = {
         image: item.querySelector("img").src,
         title: item.querySelector("h3").textContent,
@@ -75,7 +75,7 @@ function readData(item, cartBody, totalDiv) {
         cart = [...cart, obj];
     }
 
-    cartHtml(cart, cartBody, totalDiv);
+    cartHtml(cart, cartBody, totalDiv, cartItemCount);
 }
 
 // Actualiza la interfaz del carrito.
@@ -128,13 +128,12 @@ export function deletedItem(e, cartBody, totalDiv, clearBtn, cartItemCount) {
         const dataId = e.target.getAttribute("data-id");
         // Filtra el producto a eliminar .
         cart = cart.filter((item) => item.id !== dataId);
-        cartHtml(cart, cartBody, totalDiv);
+        cartHtml(cart, cartBody, totalDiv, cartItemCount);
 
         if (!cart.length) {
             clearBtn.classList.add("active");
         }
     }
-    updateCartItemCount(cartItemCount);
 }
 
 
@@ -187,10 +186,10 @@ function totalAdditionPrice(totalDiv) {
 }
 
 
-export function updateCartItemCount(cartItemCount){
-    if (cartItemCount) {
-        cartItemCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
-    }
+function updateCartItemCount(cartItemCount){
+        const cartLength = cart.reduce((acc, item) => acc + item.quantity, 0);
+        console.log(cartLength)
+        cartItemCount.textContent = cartLength;
 }
 
 
@@ -201,7 +200,7 @@ function addLocalStorage() {
 
 export function getStorage(cartBody, totalDiv, cartItemCount) {
     cart = JSON.parse(localStorage.getItem("itemCart")) || [];
-    cartHtml(cart, cartBody, totalDiv);
+    cartHtml(cart, cartBody, totalDiv, cartItemCount);
     updateCartItemCount(cartItemCount);
 }
 
@@ -219,7 +218,7 @@ export function clearCart(cartBody, totalDiv, clearBtn, cartItemCount) {
         }).then((result) => {
             if (result.isConfirmed) {
                 cart = [];
-                cartHtml(cart, cartBody, totalDiv);
+                cartHtml(cart, cartBody, totalDiv,cartItemCount);
                 swal.fire({
                     title: "Carrito vacío",
                     icon: "success",
