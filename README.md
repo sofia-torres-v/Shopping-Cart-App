@@ -1,6 +1,6 @@
 # Tienda Online de Ropa
 
-Este proyecto es una tienda en línea que ofrece una variedad de ropa para dama. Incluye un carrito de compras y un formulario de compra. La implementación se realiza en Vanilla JavaScript y se utiliza la biblioteca SweetAlert para mejorar la experiencia del usuario.
+Este proyecto es una tienda en línea que ofrece una variedad de ropa para dama. Incluye un carrito de compras. La implementación se realiza en Vanilla JavaScript y se utiliza la biblioteca SweetAlert para mejorar la experiencia del usuario.
 
 ## Características
 
