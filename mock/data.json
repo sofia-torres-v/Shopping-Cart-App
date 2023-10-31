@@ -65,12 +65,12 @@
     {
         "id": 6,
         "name": "Polera Oversize",
-       "image": "https://arcoi.pe/wp-content/uploads/2022/06/11.6.jpg",
+        "image": "https://arcoi.pe/wp-content/uploads/2022/06/11.6.jpg",
 
-       " title": "Polera Oversize",
+        "title": "Polera Oversize",
         "category": "Casual",
         "price": 29.99,
-       "description":
+        "description":
             "Casaca polera con capucha con forro. Modelo de corte holgado con hombros caídos, cierre con protección para la barbilla y bolsillos canguro. Puños y bajo en punto acanalado. Interior cepillado suave.",
         "itHasDues": false,
         "isAnOffer": true
