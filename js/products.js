@@ -37,7 +37,7 @@ export async function showApi(contentProducts) {
 
 
 
-// ----------------------------------------- Carrito de compras -------------------------------------
+// ------------------------------------------- Carrito de compras ----------------------------------------
 
 export function addProduct(e, cartBody, cartModal, cartUl, totalDiv, clearBtn, cartItemCount) {
     if (e.target.classList.contains("main__info-add")) {
@@ -193,6 +193,9 @@ function updateCartItemCount(cartItemCount){
 }
 
 
+
+// --------------------------------------------  LocalStorage  ----------------------------------
+
 function addLocalStorage() {
     localStorage.setItem("itemCart", JSON.stringify(cart));
 }
@@ -205,7 +208,9 @@ export function getStorage(cartBody, totalDiv, cartItemCount) {
 }
 
 
-// Modal SweetAlert2
+
+// ---------------------------------------- Modal SweetAlert2  ----------------------------------
+
 export function clearCart(cartBody, totalDiv, clearBtn, cartItemCount) {
     if (cart.length) {
         swal.fire({
@@ -232,7 +237,7 @@ export function clearCart(cartBody, totalDiv, clearBtn, cartItemCount) {
 
 
 
-// --------------------------------------- Filtrar en input buscador -------------------------------
+// --------------------------------------- Innput buscador ---------------------------------
 
 export function searchByName(searchValue, searchContent) {
     let filteredData = [];
@@ -263,4 +268,3 @@ function htmlSearchModal(filteredData,searchContent) {
          searchContent.appendChild(div);
     }); 
 }
-  
