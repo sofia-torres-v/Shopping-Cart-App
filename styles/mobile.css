@@ -45,11 +45,35 @@ html {
     font-size: 2.8rem;
 }
 
+.header__enlaces {
+    background-color: #583c64;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 70vh;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 100px 20px 80px ;
+    left: -100%;
+    transition: left 0.5s ease;
+}
+
 .header__enlaces span {
     font-size: 2.5rem;
 }
 
+
+.header__enlaces.isActive {
+    left: 0;
+}
+
 .header__link {
+    color: #fff;
+    font-size: 2rem;
     text-decoration: none; 
     position: relative;
     transition: border-bottom 0.2s ease;
@@ -177,33 +201,6 @@ html {
 .modal.isActive {
     opacity: 1;
     visibility: visible;
-}
-
-.header__enlaces {
-    background-color: #583c64;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 75%;
-    height: 70vh;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 100px 20px 80px ;
-    left: -100%;
-    transition: left 0.5s ease;
-}
-
-.header__enlaces.isActive {
-    left: 0;
-}
-
-.header__link {
-    text-decoration: none;
-    color: #fff;
-    font-size: 2rem;
 }
 
 .modal__icon-delete {
