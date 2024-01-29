@@ -1,6 +1,6 @@
 # Tienda Online de Ropa
 
-¡Bienvenidos! Este proyecto te ofrece una plataforma para descubrir y adquirir una amplia variedad de ropa para dama. Está desarrollado exclusivamente con tecnologías nativas como JavaScript, CSS, Flexbox, Grid y SweetAlert para ofrecerte un diseño atractivo, moderno y funcional.
+¡Bienvenidos! Este proyecto te ofrece una plataforma para descubrir y adquirir una amplia variedad de ropa para dama. Está desarrollado exclusivamente con tecnologías nativas como JavaScript, CSS, Flexbox, Grid y SweetAlert para ofrecerte un diseño atractivo.
 
 ## Características Destacadas
 
