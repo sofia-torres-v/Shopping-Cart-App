@@ -4,9 +4,8 @@
         "name": "Short Robert Lewis",
         "image": "https://i.pinimg.com/originals/86/8c/3b/868c3ba44121c849352eaff12d506ded.jpg",
         "title": "Short Robert Lewis",
-       "price": 89.99,
-        "description":
-            "Camisa manga corta Robert Lewis para hombre mini print algodón.",
+        "price": 89.99,
+        "description": "Camisa manga corta Robert Lewis para hombre mini print algodón.",
         "category": "Verano",
 
         "itHasDues": false,
@@ -18,8 +17,7 @@
         "image": "https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/9528fee114c6e7b9544fd1b9d400f63a.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/80",
         "title": "Short de Algodón",
         "price": 109.99,
-        "description":
-            "Polera con Detalle en las Mangas Para Dama, mezcla de algodon con cuello redondo",
+        "description": "Polera con Detalle en las Mangas Para Dama, mezcla de algodon con cuello redondo",
         "category": "Verano",
 
         "itHasDues": false,
@@ -41,8 +39,7 @@
         "name": "Short Drill",
         "image": "https://i.pinimg.com/originals/65/25/59/6525593a6aaae76eb325119a9faa2eac.png",
         "title": "Short Drill",
-        "description":
-            "Chaleco Reversible de Peluche y Cuerina, chaleco de dama, ropa de mujer",
+        "description": "Chaleco Reversible de Peluche y Cuerina, chaleco de dama, ropa de mujer",
         "price": 99.99,
         "category": "Verano",
 
@@ -55,8 +52,7 @@
         "image": "https://www.gamarra.com.pe/wp-content/uploads/2023/06/DSC04329-480x600.jpg",
         "title": "Polera Estampada",
         "price": 19.99,
-        "description":
-            "Polera en mezcla de algodón con cuello redondo, motivo estampado adelante y hombros marcadamente caídos. Cuello, puños y bajo en punto elástico acanalado. Interior cepillado suave.",
+        "description": "Polera en mezcla de algodón con cuello redondo, motivo estampado adelante y hombros marcadamente caídos. Cuello, puños y bajo en punto elástico acanalado. Interior cepillado suave.",
         "category": "Casual",
         "itHasDues": true,
         "isAnOffer": false
@@ -64,13 +60,12 @@
     {
         "id": 6,
         "name": "Polera Oversize",
-        "image": "https://arcoi.pe/wp-content/uploads/2022/06/11.6.jpg",
+        "image": "https://img.freepik.com/fotos-premium/mujer-joven-elegante-mujer-llevando-blanco-hoodie_144962-20418.jpg",
 
         "title": "Polera Oversize",
         "category": "Casual",
         "price": 29.99,
-        "description":
-            "Casaca polera con capucha con forro. Modelo de corte holgado con hombros caídos, cierre con protección para la barbilla y bolsillos canguro. Puños y bajo en punto acanalado. Interior cepillado suave.",
+        "description": "Casaca polera con capucha con forro. Modelo de corte holgado con hombros caídos, cierre con protección para la barbilla y bolsillos canguro. Puños y bajo en punto acanalado. Interior cepillado suave.",
         "itHasDues": false,
         "isAnOffer": true
     },
@@ -80,8 +75,7 @@
         "image": "https://www.gamarra.com.pe/wp-content/uploads/2023/06/DSC04317-480x600.jpg",
         "title": "Polera Estampada",
         "price": 39.99,
-        "description":
-            "Polera en mezcla de algodón con cuello redondo, motivo estampado adelante y hombros marcadamente caídos. Cuello, puños y bajo en punto elástico acanalado. Interior cepillado suave.",
+        "description": "Polera en mezcla de algodón con cuello redondo, motivo estampado adelante y hombros marcadamente caídos. Cuello, puños y bajo en punto elástico acanalado. Interior cepillado suave.",
         "category": "Casual",
         "itHasDues": true,
         "isAnOffer": true
@@ -89,10 +83,9 @@
     {
         "id": 8,
         "name": "Polera Detalles",
-        "image": "https://arcoi.pe/wp-content/uploads/2022/07/16.2.jpg",
+        "image": "https://img.freepik.com/fotos-premium/mujer-sudadera-blanca_23-2147730465.jpg",
         "title": "Polera Detalles",
-        "description":
-            "Polera cuello redondo avengers ,algodón con estampado en el pecho.",
+        "description": "Polera cuello redondo avengers ,algodón con estampado en el pecho.",
         "price": 49.99,
         "category": "Casual",
         "itHasDues": false,
@@ -104,8 +97,7 @@
         "image": "https://img.freepik.com/fotos-premium/hermosa-modelo-morena-femenina-ropa-blanca_149155-1369.jpg?w=2000",
         "title": "Blusa de Gaza",
         "price": 59.99,
-        "description":
-            "Sobretodo de Cuerina con correa incorporada, Elegante corte estilizado.",
+        "description": "Sobretodo de Cuerina con correa incorporada, Elegante corte estilizado.",
         "category": "Sport Elegante",
         "itHasDues": true,
         "isAnOffer": true
@@ -115,8 +107,7 @@
         "name": "Abrigo con Blusa rosa",
         "image": "https://www.gamarra.com.pe/wp-content/uploads/2023/06/DSC04388-300x450.jpg",
         "title": "Abrigo con Blusa rosa",
-        "description":
-            "Sobretodo de peluche , Elegante corte estilizado de bolsillos amplios.",
+        "description": "Sobretodo de peluche , Elegante corte estilizado de bolsillos amplios.",
         "price": 79.99,
         "category": "Sport Elegante",
 
@@ -146,5 +137,4 @@
         "itHasDues": false,
         "isAnOffer": false
     }
-   
 ]
